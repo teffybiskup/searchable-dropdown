@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SearchableDropdown from './components/SearchableDropdown';
+import { DropdownItem } from './types';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const handleSelect = (item: DropdownItem) => {
+    console.log("Selected", item);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SearchableDropdown 
+        apiUrl="https://restcountries.com/v3.1/name/" 
+        onSelect={handleSelect}
+      />
+    </>
   );
 }
 
